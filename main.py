@@ -26,6 +26,7 @@ g = Github(args.github_token)
 
 
 def files():
+    print("I am in files")
     repo = g.get_repo(os.getenv('GITHUB_REPOSITORY'))
     pull_request = repo.get_pull(int(args.github_pr_id))
 
@@ -57,6 +58,7 @@ def files():
 
 
 def patch():
+    print("I am in patch")
     repo = g.get_repo(os.getenv('GITHUB_REPOSITORY'))
     pull_request = repo.get_pull(int(args.github_pr_id))
 
@@ -111,7 +113,9 @@ def get_content_patch():
 
 
 if (args.mode == "files"):
+    print("Mode is files")
     files()
 
 if (args.mode == "patch"):
+    print("Mode is patch")
     patch()
