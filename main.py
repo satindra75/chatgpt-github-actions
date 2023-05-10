@@ -51,7 +51,9 @@ def files():
             pull_request.create_issue_comment(
                 f"ChatGPT's response about `{file.filename}`:\n {response['choices'][0]['text']}")
             
-            print(f"ChatGPT's response about `{file.filename}`:\n {response['choices'][0]['text']}")
+            print(response)
+            print(response['choices'][0]['text'])
+            raise Exception(response)
 
 
 def patch():
