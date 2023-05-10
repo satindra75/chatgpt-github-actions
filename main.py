@@ -39,7 +39,8 @@ def files():
             # Getting the file name and content
             filename = file.filename
             content = repo.get_contents(filename, ref=commit.sha).decoded_content
-
+            print(f"Explain Code:\n```{content}```")
+            
             # Sending the code to ChatGPT
             response = openai.Completion.create(
                 engine=args.openai_engine,
@@ -52,8 +53,8 @@ def files():
             pull_request.create_issue_comment(
                 f"ChatGPT's response about `{file.filename}`:\n {response['choices'][0]['text']}")
             
-            print(response)
-            print(response['choices'][0]['text'])
+           # print(response)
+           # print(response['choices'][0]['text'])
 
 def patch():
     print("I am in patch")
