@@ -54,8 +54,6 @@ def files():
             
             print(response)
             print(response['choices'][0]['text'])
-            raise Exception(response)
-
 
 def patch():
     print("I am in patch")
