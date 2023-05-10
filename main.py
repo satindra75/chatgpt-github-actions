@@ -44,8 +44,9 @@ def files():
             # Sending the code to ChatGPT
             response = openai.Completion.create(
                 engine=args.openai_engine,
-                prompt=(f"Explain Code:\n```{content}```"),
+                #prompt=(f"Explain Code:\n```{content}```"),
                 #prompt=("provide 4 questions for interview"),
+                prompt=(f"You will take in a code Snippet, and tell the user what they could have improved (like a code review) based on analyzing the code. The language in the snippet is c#. Feel free to provide any examples as markdown code snippets in your answer.:\n```{content}```"),
                 temperature=float(args.openai_temperature),
                 max_tokens=int(args.openai_max_tokens)
             )
